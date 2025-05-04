@@ -1,0 +1,78 @@
+{
+  "loginPage": {
+    "login": "Log in",
+    "getCode": "Sign in with Quick Code",
+    "loginButton": "Sign in",
+    "insertCode": "Insert Code",
+    "change": "Change user",
+    "codeSent": "We've sent a six digit code to user \"{{login}}\". Insert it here to access the app.",
+    "countdown": "Code will expire within <seconds>{{seconds}}</seconds> seconds. After, you can request another one, If you didn't receive one.",
+    "loginPlaceholder": "login, phone number or alias",
+    "smsCode": "SMS",
+    "emailCode": "EMAIL"
+  },
+  "legal": {
+    "title": "Legal",
+    "termsofuse": "Terms of Use",
+    "privacy": "Privacy",
+    "openSourceSoftwareAttribution": "Open Source Software Attribution"
+  },
+  "header": {
+    "logOut": "Log out"
+  },
+  "language": {
+    "title": "Language",
+    "en": "English",
+    "ru": "Русский"
+  },
+  "sosForm": {
+    "select": {
+      "country": "Country",
+      "organization": "Select organization",
+      "button": "Select button",
+      "protocol": "Select Protocol"
+    },
+    "sosBtn": "Send Message",
+    "uploadBtn": "Upload File (optional)",
+    "cancelSend": "Click to cancel {{seconds}} sec",
+    "isSending": "Sending",
+    "comment": "Enter a comment (recommended)",
+    "commentRequired": "Enter a comment",
+    "noNotifications": "You are logged in but the administrator has turned off all notifications. Once they are turned on they will appear on this screen."
+  },
+  "error": {
+    "error404": "Oops! There's no such page!.",
+    "loadingData": "There was an error loading the data."
+  },
+  "LogCards": {
+    "noCards": "No cards were fetched try again or come later",
+    "requestCardsBtn": "Fetch again"
+  },
+  "logCard": {
+    "daysPassed": "Reported {{daysPassed}} days ago",
+    "logButtons": {
+      "addComment": "Add comment",
+      "changeLogStatus": "Change status",
+      "completeLog": "Close log"
+    }
+  },
+  "launchPage": {
+    "unsolvedLogs": "Unsolved Problems"
+  },
+  "selectScreenButtons": {
+    "sos": "SOS",
+    "logs": "LOGS"
+  },
+  "termsModal": {
+    "pleaseAccept": "Accept our policies to proceed using SOS"
+  },
+  "changelogs": {
+    "navigationLabel": "Changelog"
+  },
+  "submit": "Submit",
+  "close": "Close",
+  "back": "Back",
+  "accept": "Accept",
+  "loading": "Loading...",
+  "noData": "No data available"
+}

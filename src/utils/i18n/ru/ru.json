@@ -1,0 +1,78 @@
+{
+  "loginPage": {
+    "login": "Войти",
+    "getCode": "Получить код",
+    "loginButton": "Войти",
+    "insertCode": "Введите код",
+    "change": "Выбрать другой логин",
+    "codeSent": "6-значный код был выслан пользователю \"{{login}}\". Введите код, чтобы войти.",
+    "countdown": "Код действителен <seconds>{{seconds}}</seconds> секунд. Если Вы не получили код или он истек, то сможете запросить заново.",
+    "loginPlaceholder": "логин, телефон или алиас почты",
+    "smsCode": "SMS",
+    "emailCode": "EMAIL"
+  },
+  "legal": {
+    "title": "Политики",
+    "termsofuse": "Пользовательское соглашение",
+    "privacy": "Политика конфиденциальности",
+    "openSourceSoftwareAttribution": "Атрибуция ПО"
+  },
+  "header": {
+    "logOut": "Выйти"
+  },
+  "language": {
+    "title": "Язык",
+    "en": "English",
+    "ru": "Русский"
+  },
+  "sosForm": {
+    "select": {
+      "country": "Страна",
+      "organization": "Выберите организацию",
+      "button": "Выберите кнопку",
+      "protocol": "Выберите протокол"
+    },
+    "uploadBtn": "Загрузить файл (необязательно)",
+    "sosBtn": "Отправить сообщение",
+    "cancelSend": "Отменить {{seconds}} сек",
+    "isSending": "Отправляется",
+    "comment": "Введите комментарий (рекомендовано)",
+    "commentRequired": "Введите комментарий",
+    "noNotifications": "Вы вошли в систему, но администратор выключил все оповещения. Как только их включат, они появятся на этом экране."
+  },
+  "error": {
+    "error404": "Ой! Такой страницы не существует.",
+    "loadingData": "Возникла ошибка при загрузке данных."
+  },
+  "LogCards": {
+    "noCards": "Карточки не были загружены, попробуйте еще раз или вернитесь позже",
+    "requestCardsBtn": "Обновить"
+  },
+  "logCard": {
+    "daysPassed": "Открыто: {{daysPassed}} дней",
+    "logButtons": {
+      "addComment": "Добавить комментарий",
+      "changeLogStatus": "Изменить статус",
+      "completeLog": "Закрыть проблему"
+    }
+  },
+  "launchPage": {
+    "unsolvedLogs": "Незавершенные проблемы"
+  },
+  "selectScreenButtons": {
+    "sos": "СОС",
+    "logs": "Логи"
+  },
+  "termsModal": {
+    "pleaseAccept": "Прочитайте и примите пользовательское соглашение"
+  },
+  "changelogs": {
+    "navigationLabel": "Журнал изменений"
+  },
+  "submit": "Отправить",
+  "close": "Закрыть",
+  "back": "Назад",
+  "accept": "Принять",
+  "loading": "Загрузка...",
+  "noData": "Нет данных"
+}
