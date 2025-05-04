@@ -47,7 +47,7 @@ export const MainColorHeading = styled((props) => (
   fontWeight: 700,
 }));
 
-export const PageHeading = styled((props) => (
+export const PageHeading = styled((props: TypographyProps) => (
   <Typography sx={{ my: { xs: 1, md: 3 } }} {...props} />
 ))(() => ({
   fontSize: "25px",
