@@ -40,7 +40,7 @@ export const CaptionHeading = styled((props: TypographyProps) => (
   color: "black",
 }));
 
-export const MainColorHeading = styled((props) => (
+export const MainColorHeading = styled((props: TypographyProps) => (
   <Typography color="text.primary" variant="h6" {...props} />
 ))(() => ({
   fontSize: "18px",

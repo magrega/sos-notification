@@ -5,7 +5,7 @@ import Tabs from "@mui/material/Tabs";
 import Typography from "@mui/material/Typography";
 import LegalPageContent from "components/LegalPage/LegalPageContent";
 import { a11yProps } from "helpers";
-import { useAgreeToTerms } from "hooks/QueryHooks/Terms";
+import { useLegalQuery } from "hooks/QueryHooks/Terms";
 import { SyntheticEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 import TabPanel from "./TabPanel";
@@ -19,6 +19,7 @@ const TermsTabs = ({ handleClose }: TermsTabsProps) => {
   const { t } = useTranslation();
   const isModile = useMediaQuery((theme) => theme.breakpoints.down("md"));
 
+  const { useAgreeToTerms } = useLegalQuery();
   const { mutateAsync: sendPrivacy, isPending } = useAgreeToTerms();
 
   const [tabNum, setTabNum] = useState(0);

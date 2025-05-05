@@ -11,28 +11,30 @@ type LegalTypeMap = {
   oss: OssResponse;
 };
 
-export const useGetLegalQuery = <T extends LegalType>(page: T) => {
+export const useLegalQuery = () => {
   const { customKy } = useKy();
+  const useGetLegal = <T extends LegalType>(page: T) => {
+    return useQuery<LegalTypeMap[T]>({
+      queryKey: ["legal", page],
+      queryFn: async () =>
+        await customKy.get(`${BASE_API}/${page}`).json<LegalTypeMap[T]>(),
+    });
+  };
 
-  return useQuery<LegalTypeMap[T]>({
-    queryKey: ["legal", page],
-    queryFn: async () =>
-      await customKy.get(`${BASE_API}/${page}`).json<LegalTypeMap[T]>(),
-  });
-};
+  const useAgreeToTerms = () => {
+    const { useGetUser } = useAuthQuery();
+    const { data: user } = useGetUser();
 
-export const useAgreeToTerms = () => {
-  const { customKy } = useKy();
-  const { useGetUser } = useAuthQuery();
-  const { data: user } = useGetUser();
+    return useMutation({
+      mutationFn: async () => {
+        if (!user?.username) return;
 
-  return useMutation({
-    mutationFn: async () => {
-      if (!user?.username) return;
+        await customKy.patch(`${USERS}/${user?.id}/`, {
+          json: { isTermsApprovalRequired: false },
+        });
+      },
+    });
+  };
 
-      await customKy.patch(`${USERS}/${user?.id}/`, {
-        json: { isTermsApprovalRequired: false },
-      });
-    },
-  });
+  return { useGetLegal, useAgreeToTerms };
 };
