@@ -4,7 +4,7 @@ export const copyright = `© Copyright ${new Date().getFullYear()} magrega`;
 
 export const sosCountdown = process.env.NODE_ENV === "production" ? 5 : 1;
 export const codeCountdown =
-  process.env.NODE_ENV === "production" ? 120 * 1000 : 3 * 1000;
+  process.env.NODE_ENV === "production" ? 30 * 1000 : 3 * 1000;
 
 export const theme = createTheme({
   typography: {

@@ -41,8 +41,9 @@
     "noNotifications": "You are logged in but the administrator has turned off all notifications. Once they are turned on they will appear on this screen."
   },
   "error": {
-    "error404": "Oops! There's no such page!.",
-    "loadingData": "There was an error loading the data."
+    "error404": "Oops! There's no such page!",
+    "loadingData": "There was an error loading the data.",
+    "wrongCode": "Wrong code"
   },
   "LogCards": {
     "noCards": "No cards were fetched try again or come later",

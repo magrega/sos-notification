@@ -40,6 +40,8 @@ const ByQuickCode = ({
         login,
       });
 
+      console.log(data?.accessToken);
+
       setSpreadAuth({
         accessToken: data?.accessToken,
       });

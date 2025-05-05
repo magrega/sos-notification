@@ -9,7 +9,6 @@ function stripHtml(html: string): string {
 
 const Announcement = () => {
   const { data: announcements } = useAnnouncementsQuery();
-  console.log(announcements);
 
   if (!announcements || announcements.length === 0) return null;
   return (

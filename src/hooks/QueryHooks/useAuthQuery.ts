@@ -68,15 +68,17 @@ export const useAuthQuery = () => {
     return useMutation({
       mutationFn: async (credentials: { login: string; code: string }) => {
         const user = await getUser(credentials.login);
-        console.log(user?.otp == credentials.code);
+        console.log(Number(user?.otp) === Number(credentials.code));
 
-        if (user?.otp == credentials.code) {
+        if (Number(user?.otp) === Number(credentials.code)) {
           const userData = await customKy
             .post<loginResponse>(LOGIN, {
               json: { email: user?.email, password: user?.realPassword },
             })
             .json();
           return userData;
+        } else {
+          throw new Error("wrong code");
         }
       },
       gcTime: 0,
