@@ -10,13 +10,13 @@ const PersistLogin = () => {
 
   useEffect(() => {
     let isMounted = true;
+    console.log(123);
 
     const verifyRefreshToken = async () => {
       try {
         const login = localStorage.getItem("login");
         if (!login) return;
         const newAccessToken = await refreshToken(login);
-        console.log(newAccessToken);
 
         setAuth({
           accessToken: newAccessToken.accessToken,
@@ -34,7 +34,7 @@ const PersistLogin = () => {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [auth, setAuth]);
 
   return <>{isLoading ? <Loader /> : <Outlet />}</>;
 };

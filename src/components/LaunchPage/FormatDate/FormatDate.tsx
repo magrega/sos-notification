@@ -28,7 +28,6 @@ const safelyFormatValue = (
 };
 
 const FormatDate = ({
-  fractionalSecondDigits,
   hour,
   minute,
   day,
@@ -40,7 +39,7 @@ const FormatDate = ({
   timeZoneName,
   locale = "default",
   isDateRange = false,
-  ...rest
+  ...props
 }: FormatDateProps) => {
   const { i18n } = useTranslation();
 
@@ -50,7 +49,6 @@ const FormatDate = ({
     new Date(timeStart).toDateString() === new Date(timeEnd).toDateString();
 
   const dateFormatter = new Intl.DateTimeFormat(i18n?.language || locale, {
-    fractionalSecondDigits,
     hour,
     minute,
     day,
@@ -62,11 +60,11 @@ const FormatDate = ({
 
   return (
     <>
-      <time dateTime={getDateString(timeStart)} {...rest}>
+      <time dateTime={getDateString(timeStart)} {...props}>
         {safelyFormatValue(dateFormatter, timeStart)}
       </time>
       {timeEnd && !isSameDates && (
-        <time dateTime={getDateString(timeEnd)} {...rest}>
+        <time dateTime={getDateString(timeEnd)} {...props}>
           {" - "}
           {safelyFormatValue(dateFormatter, timeEnd)}
         </time>

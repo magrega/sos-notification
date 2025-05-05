@@ -43,7 +43,13 @@ export const useAuthQuery = () => {
       mutationKey: ["CheckLogin"],
       mutationFn: async (
         login: string
-      ): Promise<CheckLoginResponse | undefined> => getUser(login),
+      ): Promise<CheckLoginResponse | undefined> => {
+        const user = await getUser(login);
+        console.log(user);
+
+        if (!user) throw new Error("User not found!");
+        return user;
+      },
       gcTime: 0,
     });
 
@@ -54,6 +60,10 @@ export const useAuthQuery = () => {
         password: string;
       }): Promise<loginResponse> => {
         const user = await getUser(credentials.login);
+        console.log(user);
+
+        if (!user) throw new Error("User not found!");
+
         return await customKy
           .post(LOGIN, {
             json: { email: user?.email, password: credentials.password },
@@ -68,7 +78,6 @@ export const useAuthQuery = () => {
     return useMutation({
       mutationFn: async (credentials: { login: string; code: string }) => {
         const user = await getUser(credentials.login);
-        console.log(Number(user?.otp) === Number(credentials.code));
 
         if (Number(user?.otp) === Number(credentials.code)) {
           const userData = await customKy

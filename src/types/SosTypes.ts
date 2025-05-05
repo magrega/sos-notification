@@ -36,3 +36,4 @@ export type SettersType = {
 
 export type SelectScreenButtonsType = "SOS" | "Logs";
 export type LegalType = "terms" | "oss" | "privacy";
+export type CodeType = "mobile" | "email" | undefined;

@@ -1,5 +1,4 @@
 export interface FormatDateProps {
-  fractionalSecondDigits?: 1 | 3 | 2 | undefined;
   hour?: "numeric" | "2-digit" | undefined;
   minute?: "numeric" | "2-digit" | undefined;
   day?: "numeric" | "2-digit" | undefined;
