@@ -6,18 +6,19 @@ import useAuth from "../hooks/useAuth";
 
 const PersistLogin = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const { auth, setAuth } = useAuth();
+  const { setAuth } = useAuth();
 
   useEffect(() => {
     let isMounted = true;
+    console.log(132);
 
     const verifyRefreshToken = async () => {
       try {
         const login = localStorage.getItem("login");
         const isLogged = localStorage.getItem("isLogged");
-        if (!login || !isLogged) return;
-        const newAccessToken = await refreshToken(login);
+        if (!login || !isLogged) return setIsLoading(false);
 
+        const newAccessToken = await refreshToken(login);
         setAuth({
           accessToken: newAccessToken.accessToken,
           username: newAccessToken.username,
@@ -28,13 +29,13 @@ const PersistLogin = () => {
         if (isMounted) setIsLoading(false);
       }
     };
-    if (!auth) verifyRefreshToken();
-    if (auth) setIsLoading(false);
+
+    verifyRefreshToken();
 
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [setAuth]);
 
   return <>{isLoading ? <Loader /> : <Outlet />}</>;
 };
