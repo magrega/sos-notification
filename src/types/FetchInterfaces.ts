@@ -95,7 +95,7 @@ export interface Announcement {
   country: null;
 }
 
-interface Changelog {
+export interface Changelog {
   id: number;
   major_version: number;
   minor_version: number;
@@ -106,10 +106,6 @@ interface Changelog {
   released: boolean;
   story_points: number;
   date: string;
-}
-
-export interface ChangelogResponse {
-  changelogs: Changelog[];
 }
 
 export interface CheckLoginResponse {

@@ -1,14 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { useKy } from "hooks/useKy";
-import { ChangelogResponse } from "types/FetchInterfaces";
-import { BASE_API } from "./ApiVars";
+import { CHANGELOGS } from "./ApiVars";
+import { Changelog } from "types/FetchInterfaces";
 
-export const useGetChangeLogs = (tabId: number | null = null) => {
+export const useGetChangeLogs = () => {
   const { customKy } = useKy();
 
   return useQuery({
-    queryKey: ["changelogs", tabId],
-    queryFn: async () =>
-      await customKy.get<ChangelogResponse>(BASE_API + "/changelogs").json(),
+    queryKey: ["changelogs"],
+    queryFn: async () => await customKy.get<Changelog[]>(CHANGELOGS).json(),
   });
 };
