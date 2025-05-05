@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import styles from "../ByPassword.module.css";
+import styles from "./ExpandableWrapper.module.css";
 
 const ExpandableWrapper = ({ children }: PropsWithChildren) => {
   return (
