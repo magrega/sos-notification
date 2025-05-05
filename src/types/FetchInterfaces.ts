@@ -112,3 +112,21 @@ export interface CheckLoginResponse {
   auth_type: string;
   username: string;
 }
+
+export interface OssLegalItem {
+  library: string;
+  version: string;
+  license: string;
+  link: string;
+  text: string;
+}
+
+export interface OssLegalData {
+  results: OssLegalItem[];
+}
+
+export interface TermsOrPrivacyLegalData {
+  text: string;
+}
+
+export type LegalData = OssLegalData | TermsOrPrivacyLegalData;

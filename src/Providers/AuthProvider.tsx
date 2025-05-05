@@ -1,4 +1,3 @@
-import { CodeType } from "components/LoginPage/LoginTypes";
 import {
   createContext,
   Dispatch,
@@ -6,6 +5,7 @@ import {
   SetStateAction,
   useState,
 } from "react";
+import { CodeType } from "types/SosTypes";
 
 type auth = {
   username?: string;

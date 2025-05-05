@@ -15,7 +15,8 @@ const PersistLogin = () => {
     const verifyRefreshToken = async () => {
       try {
         const login = localStorage.getItem("login");
-        if (!login) return;
+        const isLogged = localStorage.getItem("isLogged");
+        if (!login || !isLogged) return;
         const newAccessToken = await refreshToken(login);
 
         setAuth({
@@ -34,7 +35,7 @@ const PersistLogin = () => {
     return () => {
       isMounted = false;
     };
-  }, [auth, setAuth]);
+  }, []);
 
   return <>{isLoading ? <Loader /> : <Outlet />}</>;
 };

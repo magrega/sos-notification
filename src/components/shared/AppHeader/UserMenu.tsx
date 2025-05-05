@@ -25,6 +25,7 @@ const UserMenu = () => {
     navigate("/login");
     setAuth(undefined);
     localStorage.removeItem("login");
+    localStorage.removeItem("isLogged");
   };
 
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);

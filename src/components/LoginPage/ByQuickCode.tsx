@@ -43,6 +43,7 @@ const ByQuickCode = ({
       setSpreadAuth({
         accessToken: data?.accessToken,
       });
+      localStorage.setItem("isLogged", "true");
       navigate("/", { replace: true });
     } catch (error) {
       handleError(error);

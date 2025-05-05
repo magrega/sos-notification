@@ -27,6 +27,7 @@ export const useAuthQuery = () => {
 
     return user;
   };
+
   const useGetUser = () => {
     return useQuery({
       queryKey: ["user", auth?.username],
