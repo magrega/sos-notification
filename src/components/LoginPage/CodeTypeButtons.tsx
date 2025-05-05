@@ -1,4 +1,5 @@
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
+import { useAuthQuery } from "hooks/QueryHooks/useAuthQuery";
 import useAuth from "hooks/useAuth";
 import useSnackbar from "hooks/useSnackbar";
 import { MouseEvent, RefObject, useState } from "react";
@@ -6,7 +7,6 @@ import { useTranslation } from "react-i18next";
 import { CodeType } from "./LoginTypes";
 import ExpandableWrapper from "./UI/ExpandableWrapper";
 import LoginButton from "./UI/LoginButton";
-import { useAuthQuery } from "hooks/QueryHooks/Auth";
 
 interface CodeTypeButtonsProps {
   login: string;

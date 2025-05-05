@@ -1,7 +1,7 @@
-import { t } from 'i18next';
-import { Country } from 'types/FetchInterfaces';
-import { SettersType } from 'types/SosTypes';
-import BaseSelect from './BaseSelect';
+import { t } from "i18next";
+import { Country } from "types/FetchInterfaces";
+import { SettersType } from "types/SosTypes";
+import BaseSelect from "./BaseSelect";
 
 interface CountrySelectProps {
   selected: string;
@@ -10,7 +10,12 @@ interface CountrySelectProps {
   disabled: boolean;
 }
 
-const CountrySelect = ({ selected, options, setters, disabled }: CountrySelectProps) => {
+const CountrySelect = ({
+  selected,
+  options,
+  setters,
+  disabled,
+}: CountrySelectProps) => {
   const selectedCountry = { country: selected };
   const countryOptions = options.map((country) => ({ country }));
   const handleCountryState = (option: Country) => {
@@ -23,8 +28,8 @@ const CountrySelect = ({ selected, options, setters, disabled }: CountrySelectPr
       handleState={handleCountryState}
       propertyName="country"
       name="country"
-      label={t('sosForm.select.country')}
-      sx={{ flexBasis: { xs: '30%', md: '30%' } }}
+      label={t("sosForm.select.country")}
+      sx={{ flexBasis: { xs: "30%", md: "30%" } }}
       disabled={disabled}
     />
   );

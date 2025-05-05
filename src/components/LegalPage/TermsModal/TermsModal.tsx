@@ -1,5 +1,5 @@
 import { Box, Modal } from "@mui/material";
-import { useAuthQuery } from "hooks/QueryHooks/Auth";
+import { useAuthQuery } from "hooks/QueryHooks/useAuthQuery";
 import { PropsWithChildren, useEffect, useState } from "react";
 import TermsTabs from "./TermsTabs";
 

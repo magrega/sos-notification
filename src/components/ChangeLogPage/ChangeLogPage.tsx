@@ -1,13 +1,13 @@
 import { Typography } from "@mui/material";
 import BackButton from "components/shared/BackButton";
 import InfoPageWrapper from "components/shared/InfoPageWrapper";
-import { useGetChangeLogs } from "hooks/QueryHooks/ChangeLog";
+import { useChangeLogsQuery } from "hooks/QueryHooks/useChangeLogsQuery";
 import { useTranslation } from "react-i18next";
 import ChangeLogItem from "./ChangeLogItem";
 
 const ChangeLogsPage = () => {
   const { t } = useTranslation();
-  const { data, isFetching, isError } = useGetChangeLogs();
+  const { data, isFetching, isError } = useChangeLogsQuery();
 
   return (
     <>

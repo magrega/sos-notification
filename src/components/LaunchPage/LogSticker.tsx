@@ -1,22 +1,23 @@
-import { Box } from '@mui/material';
-import { useInfiniteLogsQuery } from 'hooks/QueryHooks/Logs';
+import { Box } from "@mui/material";
+import { useLogsQuery } from "hooks/QueryHooks/useLogsQuery";
 
 const LogSticker = () => {
-  const { data: logs } = useInfiniteLogsQuery();
+  const { useInfiniteLogs } = useLogsQuery();
+  const { data: logs } = useInfiniteLogs();
   const count = logs?.pages[0].count;
 
   return count ? (
     <Box
       sx={{
-        position: 'absolute',
-        top: '-10px',
-        right: '-10px',
-        fontSize: '12px',
-        fontWeight: 'bold',
+        position: "absolute",
+        top: "-10px",
+        right: "-10px",
+        fontSize: "12px",
+        fontWeight: "bold",
         padding: 0.2,
-        color: 'white',
-        borderRadius: '4px',
-        backgroundColor: 'red',
+        color: "white",
+        borderRadius: "4px",
+        backgroundColor: "red",
       }}
     >
       {count}

@@ -1,5 +1,5 @@
 import { Button, Typography } from "@mui/material";
-import { useAuthQuery } from "hooks/QueryHooks/Auth";
+import { useAuthQuery } from "hooks/QueryHooks/useAuthQuery";
 import useAuth from "hooks/useAuth";
 import useSnackbar from "hooks/useSnackbar";
 import { RefObject, useState } from "react";

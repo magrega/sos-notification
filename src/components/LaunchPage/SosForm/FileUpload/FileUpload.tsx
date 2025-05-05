@@ -1,10 +1,10 @@
-import UploadButton from 'components/LaunchPage/SosForm/FileUpload/UploadButton';
-import UploadedFiles from 'components/LaunchPage/SosForm/FileUpload/UploadedFiles';
-import { SettersType } from 'types/SosTypes';
+import UploadButton from "components/LaunchPage/SosForm/FileUpload/UploadButton";
+import UploadedFiles from "components/LaunchPage/SosForm/FileUpload/UploadedFiles";
+import { SettersType } from "types/SosTypes";
 
 interface FileUploadProps {
   attachments: File[];
-  setFormState: SettersType['setFormState'];
+  setFormState: SettersType["setFormState"];
 }
 
 const FileUpload = ({ attachments, setFormState }: FileUploadProps) => {

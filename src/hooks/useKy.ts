@@ -1,6 +1,6 @@
 import useAuth from "hooks/useAuth";
 import ky from "ky";
-import { refreshToken } from "./QueryHooks/Auth";
+import { refreshToken } from "./QueryHooks/useAuthQuery";
 
 export const useKy = () => {
   const { auth, setAuth } = useAuth();

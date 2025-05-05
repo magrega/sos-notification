@@ -1,5 +1,5 @@
 import Loader from "components/shared/Loader/Loader";
-import { refreshToken } from "hooks/QueryHooks/Auth";
+import { refreshToken } from "hooks/QueryHooks/useAuthQuery";
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router";
 import useAuth from "../hooks/useAuth";

@@ -1,5 +1,5 @@
 import { Box, Modal, Typography } from "@mui/material";
-import { useHandleLogEdit } from "hooks/QueryHooks/Logs";
+import { useLogsQuery } from "hooks/QueryHooks/useLogsQuery";
 import useSnackbar from "hooks/useSnackbar";
 import { MouseEvent, MouseEventHandler, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -25,7 +25,8 @@ const SosModal = ({
   closeMenu,
 }: SosModalProps) => {
   const { t } = useTranslation();
-  const { mutateAsync: editLog, isPending } = useHandleLogEdit();
+  const { useEditLog } = useLogsQuery();
+  const { mutateAsync: editLog, isPending } = useEditLog();
   const { handleSnackbar } = useSnackbar();
 
   const [comment, setComment] = useState("");

@@ -1,5 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
-import { useAuthQuery } from "hooks/QueryHooks/Auth";
+import { useAuthQuery } from "hooks/QueryHooks/useAuthQuery";
 import useAuth from "hooks/useAuth";
 import { RefObject, useState } from "react";
 import { useTranslation } from "react-i18next";

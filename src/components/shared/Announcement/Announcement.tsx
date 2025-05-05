@@ -1,5 +1,5 @@
 import { Alert, Box } from "@mui/material";
-import { useGetAnnouncements } from "hooks/QueryHooks/Announcements";
+import { useAnnouncementsQuery } from "hooks/QueryHooks/useAnnouncementsQuery";
 
 function stripHtml(html: string): string {
   const div = document.createElement("div");
@@ -8,7 +8,7 @@ function stripHtml(html: string): string {
 }
 
 const Announcement = () => {
-  const { data: announcements } = useGetAnnouncements();
+  const { data: announcements } = useAnnouncementsQuery();
   console.log(announcements);
 
   if (!announcements || announcements.length === 0) return null;

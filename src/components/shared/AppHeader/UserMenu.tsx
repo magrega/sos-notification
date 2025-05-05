@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { useAuthQuery } from "hooks/QueryHooks/useAuthQuery";
 import useAuth from "hooks/useAuth";
 import { MouseEvent, useState } from "react";
 import { useNavigate } from "react-router";
@@ -12,7 +13,6 @@ import CopyrightMenu from "./CopyrightMenu";
 import LanguageMenu from "./LanguageMenu";
 import LegalMenu from "./LegalMenu";
 import LogoutMenu from "./LogoutMenu";
-import { useAuthQuery } from "hooks/QueryHooks/Auth";
 
 const UserMenu = () => {
   const navigate = useNavigate();

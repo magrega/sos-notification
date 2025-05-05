@@ -1,5 +1,5 @@
-import { Box } from '@mui/material';
-import PropTypes from 'prop-types';
+import { Box } from "@mui/material";
+import PropTypes from "prop-types";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -19,7 +19,9 @@ const TabPanel = (props: TabPanelProps) => {
       aria-labelledby={`vertical-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ paddingY: 1, lineHeight: '1.5rem' }}>{children}</Box>}
+      {value === index && (
+        <Box sx={{ paddingY: 1, lineHeight: "1.5rem" }}>{children}</Box>
+      )}
     </div>
   );
 };

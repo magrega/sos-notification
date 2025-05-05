@@ -1,8 +1,8 @@
-import FormControl, { FormControlProps } from '@mui/material/FormControl';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import { Button, Country, Plant, Protocol } from 'types/FetchInterfaces';
-import Label from '../UI/Label';
+import FormControl, { FormControlProps } from "@mui/material/FormControl";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+import { Button, Country, Plant, Protocol } from "types/FetchInterfaces";
+import Label from "../UI/Label";
 
 interface BaseSelectProps<T> extends FormControlProps {
   label: string;
@@ -31,7 +31,7 @@ const BaseSelect = <T extends Plant | Button | Protocol | Country>({
         value={selected[propertyName]}
         disabled={options.length === 1}
         sx={({ palette }) => ({
-          '&& .Mui-disabled': { WebkitTextFillColor: palette.text.primary },
+          "&& .Mui-disabled": { WebkitTextFillColor: palette.text.primary },
         })}
       >
         {options.map((option, index) => (

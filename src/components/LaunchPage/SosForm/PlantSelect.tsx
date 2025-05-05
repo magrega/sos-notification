@@ -1,7 +1,7 @@
-import { t } from 'i18next';
-import { Plant } from 'types/FetchInterfaces';
-import { SettersType } from 'types/SosTypes';
-import BaseSelect from './BaseSelect';
+import { t } from "i18next";
+import { Plant } from "types/FetchInterfaces";
+import { SettersType } from "types/SosTypes";
+import BaseSelect from "./BaseSelect";
 
 interface PlantSelectProps {
   selected: Plant;
@@ -29,9 +29,9 @@ const PlantSelect = ({ selected, options, setters }: PlantSelectProps) => {
       options={options}
       handleState={handlePlantState}
       propertyName="plant_name"
-      label={t('sosForm.select.organization')}
+      label={t("sosForm.select.organization")}
       name="plant"
-      sx={{ flexBasis: { xs: '70%', md: '70%' } }}
+      sx={{ flexBasis: { xs: "70%", md: "70%" } }}
     />
   );
 };

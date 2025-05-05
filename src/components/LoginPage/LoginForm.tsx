@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { useAuthQuery } from "hooks/QueryHooks/Auth";
+import { useAuthQuery } from "hooks/QueryHooks/useAuthQuery";
 import useAuth from "hooks/useAuth";
 import { useVisualError } from "hooks/useError";
 import { ChangeEvent, KeyboardEvent, RefObject, useState } from "react";

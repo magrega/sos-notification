@@ -1,5 +1,5 @@
-import { useTranslation } from 'react-i18next';
-import { FormatDateProps } from './FormatDate.props';
+import { useTranslation } from "react-i18next";
+import { FormatDateProps } from "./FormatDate.props";
 
 const getDateString = (value: string | number | Date) => {
   if (!value) return undefined;
@@ -15,15 +15,15 @@ const getDateString = (value: string | number | Date) => {
 
 const safelyFormatValue = (
   formatter: Intl.DateTimeFormat,
-  value: string | number | Date,
+  value: string | number | Date
 ): string => {
-  if (!value) return '';
+  if (!value) return "";
 
   try {
     const dateFromValue = new Date(value);
     return formatter.format(dateFromValue);
   } catch {
-    return '';
+    return "";
   }
 };
 
@@ -38,7 +38,7 @@ const FormatDate = ({
   timeStart,
   timeEnd,
   timeZoneName,
-  locale = 'default',
+  locale = "default",
   isDateRange = false,
   ...rest
 }: FormatDateProps) => {
@@ -67,7 +67,7 @@ const FormatDate = ({
       </time>
       {timeEnd && !isSameDates && (
         <time dateTime={getDateString(timeEnd)} {...rest}>
-          {' - '}
+          {" - "}
           {safelyFormatValue(dateFormatter, timeEnd)}
         </time>
       )}

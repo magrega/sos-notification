@@ -1,7 +1,7 @@
-import { t } from 'i18next';
-import { Button } from 'types/FetchInterfaces';
-import { SettersType } from 'types/SosTypes';
-import BaseSelect from './BaseSelect';
+import { t } from "i18next";
+import { Button } from "types/FetchInterfaces";
+import { SettersType } from "types/SosTypes";
+import BaseSelect from "./BaseSelect";
 
 interface ButtonSelectProps {
   selected: Button;
@@ -24,7 +24,7 @@ const ButtonSelect = ({ selected, options, setters }: ButtonSelectProps) => {
       options={options}
       handleState={handleButtonState}
       propertyName="button_title"
-      label={t('sosForm.select.button')}
+      label={t("sosForm.select.button")}
       name="button"
       fullWidth
     />

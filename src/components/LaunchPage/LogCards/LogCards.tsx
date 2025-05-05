@@ -1,7 +1,7 @@
 import { Box, LinearProgress, useMediaQuery } from "@mui/material";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import LinearLoader from "components/shared/Loader/LinearLoader";
-import { useInfiniteLogsQuery } from "hooks/QueryHooks/Logs";
+import { useLogsQuery } from "hooks/QueryHooks/useLogsQuery";
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import LogCard from "../LogCard/LogCard";
@@ -11,6 +11,8 @@ const LogCards = () => {
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down("md"));
   const parentRef = useRef<HTMLDivElement>(null);
 
+  const { useInfiniteLogs } = useLogsQuery();
+
   const {
     data: logs,
     fetchNextPage,
@@ -19,7 +21,7 @@ const LogCards = () => {
     isSuccess,
     isError,
     refetch,
-  } = useInfiniteLogsQuery();
+  } = useInfiniteLogs();
 
   const allLogs =
     useMemo(() => logs?.pages.flatMap((log) => log), [logs]) || [];

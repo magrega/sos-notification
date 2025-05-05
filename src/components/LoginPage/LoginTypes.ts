@@ -1,1 +1,1 @@
-export type CodeType = 'mobile' | 'email' | undefined;
+export type CodeType = "mobile" | "email" | undefined;

@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { useLegalQuery } from "hooks/QueryHooks/Terms";
+import { useLegalQuery } from "hooks/QueryHooks/useLegalQuery";
 import parse from "html-react-parser";
 import { useTranslation } from "react-i18next";
 import { OssResponse, TermsAndPrivacy } from "types/FetchInterfaces";

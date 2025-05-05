@@ -3,7 +3,7 @@ import { useKy } from "hooks/useKy";
 import { OssResponse, TermsAndPrivacy } from "types/FetchInterfaces";
 import { LegalType } from "types/SosTypes";
 import { BASE_API, USERS } from "./ApiVars";
-import { useAuthQuery } from "./Auth";
+import { useAuthQuery } from "./useAuthQuery";
 
 type LegalTypeMap = {
   terms: TermsAndPrivacy;

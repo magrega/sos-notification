@@ -1,5 +1,5 @@
 import { Box, Paper } from "@mui/material";
-import { useSendSos } from "hooks/QueryHooks/Logs";
+import { useLogsQuery } from "hooks/QueryHooks/useLogsQuery";
 import useAuth from "hooks/useAuth";
 import { useCountdown } from "hooks/useCountdown";
 import useSnackbar from "hooks/useSnackbar";
@@ -25,6 +25,7 @@ const SosForm = ({ sosFormData, isLoading }: ISosForm) => {
   const { handleSnackbar } = useSnackbar();
   const { seconds, isCountdown, cancelCountdown, startCountdown } =
     useCountdown();
+  const { useSendSos } = useLogsQuery();
   const { mutateAsync: sendSos, isPending } = useSendSos();
 
   const onSubmit = async (e: SyntheticEvent) => {

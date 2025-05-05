@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { useKy } from "hooks/useKy";
-import { CHANGELOGS } from "./ApiVars";
 import { Changelog } from "types/FetchInterfaces";
+import { CHANGELOGS } from "./ApiVars";
 
-export const useGetChangeLogs = () => {
+export const useChangeLogsQuery = () => {
   const { customKy } = useKy();
 
   return useQuery({

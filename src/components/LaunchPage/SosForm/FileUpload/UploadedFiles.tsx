@@ -1,10 +1,10 @@
-import DeleteIcon from '@mui/icons-material/Delete';
-import { Box, IconButton, Typography } from '@mui/material';
-import { SettersType } from 'types/SosTypes';
+import DeleteIcon from "@mui/icons-material/Delete";
+import { Box, IconButton, Typography } from "@mui/material";
+import { SettersType } from "types/SosTypes";
 
 interface UploadedFilesProps {
   attachments: File[];
-  setFormState: SettersType['setFormState'];
+  setFormState: SettersType["setFormState"];
 }
 
 const UploadedFiles = ({ attachments, setFormState }: UploadedFilesProps) => {
@@ -18,7 +18,11 @@ const UploadedFiles = ({ attachments, setFormState }: UploadedFilesProps) => {
 
   return [...attachments].map((file, index) => (
     <Box
-      sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
       key={index}
     >
       <Typography variant="body2">

@@ -1,7 +1,7 @@
-import { t } from 'i18next';
-import { Protocol } from 'types/FetchInterfaces';
-import { SettersType } from 'types/SosTypes';
-import BaseSelect from './BaseSelect';
+import { t } from "i18next";
+import { Protocol } from "types/FetchInterfaces";
+import { SettersType } from "types/SosTypes";
+import BaseSelect from "./BaseSelect";
 
 interface ProtocolSelectProps {
   selected: Protocol;
@@ -9,7 +9,11 @@ interface ProtocolSelectProps {
   setters: SettersType;
 }
 
-const ProtocolSelect = ({ selected, options, setters }: ProtocolSelectProps) => {
+const ProtocolSelect = ({
+  selected,
+  options,
+  setters,
+}: ProtocolSelectProps) => {
   const handleProtocolState = (option: Protocol) => {
     setters.setFormState((prev) => ({ ...prev, protocol: option }));
   };
@@ -19,7 +23,7 @@ const ProtocolSelect = ({ selected, options, setters }: ProtocolSelectProps) => 
       options={options}
       handleState={handleProtocolState}
       propertyName="protocol_name"
-      label={t('sosForm.select.protocol')}
+      label={t("sosForm.select.protocol")}
       name="protocol"
       fullWidth
     />

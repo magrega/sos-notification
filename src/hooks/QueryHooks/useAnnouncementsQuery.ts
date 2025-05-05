@@ -3,7 +3,7 @@ import { useKy } from "hooks/useKy";
 import { Announcement } from "types/FetchInterfaces";
 import { ANNOUNCEMENT } from "./ApiVars";
 
-export const useGetAnnouncements = () => {
+export const useAnnouncementsQuery = () => {
   const { customKy } = useKy();
 
   return useQuery({

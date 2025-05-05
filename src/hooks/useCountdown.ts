@@ -1,7 +1,7 @@
-import { useRef, useState } from 'react';
+import { useRef, useState } from "react";
 
 export const useCountdown = () => {
-  const sosCountdown = process.env.NODE_ENV === 'production' ? 5 : 2;
+  const sosCountdown = process.env.NODE_ENV === "production" ? 5 : 2;
   const intervalRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   const [seconds, setSeconds] = useState(sosCountdown);

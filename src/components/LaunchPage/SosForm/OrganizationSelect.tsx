@@ -1,9 +1,9 @@
-import FormControl, { FormControlProps } from '@mui/material/FormControl';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import { Plant } from 'types/FetchInterfaces';
-import { SettersType } from 'types/SosTypes';
-import Label from '../UI/Label';
+import FormControl, { FormControlProps } from "@mui/material/FormControl";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+import { Plant } from "types/FetchInterfaces";
+import { SettersType } from "types/SosTypes";
+import Label from "../UI/Label";
 
 interface OrganizationSelectProps extends FormControlProps {
   label: string;
@@ -30,7 +30,9 @@ export default function OrganizationSelect({
         value={option.plant_name}
         disabled={options.length === 1}
         sx={(theme) => ({
-          '&& .Mui-disabled': { WebkitTextFillColor: theme.palette.text.primary },
+          "&& .Mui-disabled": {
+            WebkitTextFillColor: theme.palette.text.primary,
+          },
         })}
       >
         {options.map((option, index) => (
