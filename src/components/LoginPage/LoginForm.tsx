@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { CheckLogin } from "hooks/QueryHooks/Auth";
+import { useAuthQuery } from "hooks/QueryHooks/Auth";
 import useAuth from "hooks/useAuth";
 import { useVisualError } from "hooks/useError";
 import { ChangeEvent, KeyboardEvent, RefObject, useState } from "react";
@@ -17,9 +17,7 @@ interface LoginFormProps {
 const LoginForm = ({ setCodeLogin, countdownStateRef }: LoginFormProps) => {
   const { t } = useTranslation();
   const { setSpreadAuth } = useAuth();
-
-  const { isErrorVisual, handleError } = useVisualError();
-
+  const { CheckLogin } = useAuthQuery();
   const {
     data: CheckLoginData,
     mutateAsync: CheckLoginMutation,
@@ -27,6 +25,7 @@ const LoginForm = ({ setCodeLogin, countdownStateRef }: LoginFormProps) => {
     reset,
   } = CheckLogin();
   const authType = CheckLoginData?.auth_type;
+  const { isErrorVisual, handleError } = useVisualError();
 
   const [login, setLogin] = useState("");
   const handleUsername = ({ target }: ChangeEvent<HTMLInputElement>) => {

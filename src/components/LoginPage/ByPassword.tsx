@@ -1,4 +1,3 @@
-import { LoginByPassword } from "hooks/QueryHooks/Auth";
 import useAuth from "hooks/useAuth";
 import { useVisualError } from "hooks/useError";
 import { ChangeEvent, useState } from "react";
@@ -6,6 +5,7 @@ import { useNavigate } from "react-router";
 import PasswordInput from "./PasswordInput";
 import ExpandableWrapper from "./UI/ExpandableWrapper";
 import LoginButton from "./UI/LoginButton";
+import { useAuthQuery } from "hooks/QueryHooks/Auth";
 
 interface ByPasswordProps {
   login: string;
@@ -13,6 +13,8 @@ interface ByPasswordProps {
 
 const ByPassword = ({ login }: ByPasswordProps) => {
   const navigate = useNavigate();
+  const { LoginByPassword } = useAuthQuery();
+
   const { mutateAsync: PWLoginMutation, isPending } = LoginByPassword();
 
   const { setSpreadAuth } = useAuth();

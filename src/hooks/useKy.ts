@@ -1,6 +1,6 @@
 import useAuth from "hooks/useAuth";
 import ky from "ky";
-import { RefreshToken } from "./QueryHooks/Auth";
+import { refreshToken } from "./QueryHooks/Auth";
 
 export const useKy = () => {
   const { auth, setAuth } = useAuth();
@@ -18,7 +18,7 @@ export const useKy = () => {
           if (response.status === 403) {
             try {
               if (!auth?.username) return;
-              const { accessToken, username } = await RefreshToken(
+              const { accessToken, username } = await refreshToken(
                 auth?.username
               );
               setAuth({ accessToken, username });

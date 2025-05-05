@@ -1,14 +1,5 @@
-import { BASE_API } from "hooks/QueryHooks/ApiVars";
-import ky from "ky";
-import { SosResponse, user } from "types/FetchInterfaces";
+import { SosResponse } from "types/FetchInterfaces";
 import { SetFormStateType } from "types/SosTypes";
-
-export const getUser = async (login: string) => {
-  const users: user[] = await ky.get(BASE_API + "/users").json();
-  const user = users.find((user) => user.username === login);
-
-  return user;
-};
 
 export const getYYYYMMDDfromIso = (date?: string) =>
   (date ? new Date(date) : new Date()).toISOString().split("T")[0];

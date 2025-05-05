@@ -1,5 +1,5 @@
 import Loader from "components/shared/Loader/Loader";
-import { RefreshToken } from "hooks/QueryHooks/Auth";
+import { refreshToken } from "hooks/QueryHooks/Auth";
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router";
 import useAuth from "../hooks/useAuth";
@@ -15,18 +15,21 @@ const PersistLogin = () => {
       try {
         const login = localStorage.getItem("login");
         if (!login) return;
-        const newAccessToken = await RefreshToken(login);
+        const newAccessToken = await refreshToken(login);
+        console.log(newAccessToken);
+
         setAuth({
           accessToken: newAccessToken.accessToken,
-          username: newAccessToken.user.username,
+          username: newAccessToken.username,
         });
       } catch (err) {
         console.error(err);
       } finally {
-        isMounted && setIsLoading(false);
+        if (isMounted) setIsLoading(false);
       }
     };
-    !auth ? verifyRefreshToken() : setIsLoading(false);
+    if (!auth) verifyRefreshToken();
+    if (auth) setIsLoading(false);
 
     return () => {
       isMounted = false;

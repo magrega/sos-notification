@@ -1,10 +1,9 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { getUser } from "helpers";
-import useAuth from "hooks/useAuth";
 import { useKy } from "hooks/useKy";
 import { OssResponse, TermsAndPrivacy } from "types/FetchInterfaces";
 import { LegalType } from "types/SosTypes";
 import { BASE_API, USERS } from "./ApiVars";
+import { useAuthQuery } from "./Auth";
 
 type LegalTypeMap = {
   terms: TermsAndPrivacy;
@@ -24,12 +23,12 @@ export const useGetLegalQuery = <T extends LegalType>(page: T) => {
 
 export const useAgreeToTerms = () => {
   const { customKy } = useKy();
-  const { auth } = useAuth();
+  const { useGetUser } = useAuthQuery();
+  const { data: user } = useGetUser();
 
   return useMutation({
     mutationFn: async () => {
-      if (!auth?.username) return;
-      const user = await getUser(auth?.username);
+      if (!user?.username) return;
 
       await customKy.patch(`${USERS}/${user?.id}/`, {
         json: { isTermsApprovalRequired: false },

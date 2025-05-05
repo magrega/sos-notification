@@ -1,17 +1,17 @@
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
-import { RequestCode } from "hooks/QueryHooks/Auth";
 import useAuth from "hooks/useAuth";
 import useSnackbar from "hooks/useSnackbar";
-import { MouseEvent, MutableRefObject, useState } from "react";
+import { MouseEvent, RefObject, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { CodeType } from "./LoginTypes";
 import ExpandableWrapper from "./UI/ExpandableWrapper";
 import LoginButton from "./UI/LoginButton";
+import { useAuthQuery } from "hooks/QueryHooks/Auth";
 
 interface CodeTypeButtonsProps {
   login: string;
   setCodeLogin: () => void;
-  countdownStateRef: MutableRefObject<number>;
+  countdownStateRef: RefObject<number>;
 }
 
 const CodeTypeButtons = ({
@@ -21,6 +21,7 @@ const CodeTypeButtons = ({
 }: CodeTypeButtonsProps) => {
   const { t } = useTranslation();
   const { setSpreadAuth } = useAuth();
+  const { RequestCode } = useAuthQuery();
 
   const { handleSnackbar } = useSnackbar();
 
