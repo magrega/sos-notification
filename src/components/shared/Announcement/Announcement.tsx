@@ -1,12 +1,5 @@
 import { Alert, Box } from "@mui/material";
 import { useGetAnnouncements } from "hooks/QueryHooks/Announcements";
-import { useLocation } from "react-router";
-
-enum Pages {
-  "/" = 82,
-  "/log" = 86,
-  "/notifications" = 83,
-}
 
 function stripHtml(html: string): string {
   const div = document.createElement("div");
@@ -15,11 +8,8 @@ function stripHtml(html: string): string {
 }
 
 const Announcement = () => {
-  const { pathname } = useLocation();
-
-  const { data: announcements } = useGetAnnouncements(
-    Pages[pathname as keyof typeof Pages] || null
-  );
+  const { data: announcements } = useGetAnnouncements();
+  console.log(announcements);
 
   if (!announcements || announcements.length === 0) return null;
   return (

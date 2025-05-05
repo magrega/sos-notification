@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { useKy } from "hooks/useKy";
 import { Announcement } from "types/FetchInterfaces";
-import { BASE_API } from "./ApiVars";
+import { ANNOUNCEMENT } from "./ApiVars";
 
-export const useGetAnnouncements = (tabId: number | null = null) => {
+export const useGetAnnouncements = () => {
   const { customKy } = useKy();
 
   return useQuery({
-    queryKey: ["announcements", tabId],
+    queryKey: ["announcements"],
     queryFn: async () =>
-      await customKy.get<Announcement[]>(BASE_API + "announcement").json(),
+      await customKy.get<Announcement[]>(ANNOUNCEMENT).json(),
   });
 };
