@@ -1,5 +1,4 @@
 import { Typography } from "@mui/material";
-import BackButton from "components/shared/BackButton";
 import InfoPageWrapper from "components/shared/InfoPageWrapper";
 import { useChangeLogsQuery } from "hooks/QueryHooks/useChangeLogsQuery";
 import { useTranslation } from "react-i18next";
@@ -11,7 +10,6 @@ const ChangeLogsPage = () => {
 
   return (
     <>
-      <BackButton />
       <InfoPageWrapper>
         <Typography variant="h5" textAlign="center" sx={{ py: 2 }}>
           {t("changelogs.navigationLabel")}
