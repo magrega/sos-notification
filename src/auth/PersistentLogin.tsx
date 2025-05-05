@@ -10,7 +10,6 @@ const PersistLogin = () => {
 
   useEffect(() => {
     let isMounted = true;
-    console.log(123);
 
     const verifyRefreshToken = async () => {
       try {

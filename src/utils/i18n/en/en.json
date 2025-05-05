@@ -26,6 +26,7 @@
     "ru": "Русский"
   },
   "sosForm": {
+    "navigationLabel": "SOS",
     "select": {
       "country": "Country",
       "organization": "Select organization",
