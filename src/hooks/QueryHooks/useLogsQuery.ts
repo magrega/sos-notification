@@ -9,8 +9,9 @@ import { ILog, LogsResponse, SosResponse } from "types/FetchInterfaces";
 import { GET_SOS, LOGS } from "./ApiVars";
 
 export const useLogsQuery = () => {
+  const { customKy } = useKy();
+
   const useInfiniteLogs = () => {
-    const { customKy } = useKy();
     return useInfiniteQuery({
       queryKey: ["infiniteLogs"],
       queryFn: async ({ pageParam }) => {
@@ -28,7 +29,6 @@ export const useLogsQuery = () => {
   };
 
   const useGetSos = () => {
-    const { customKy } = useKy();
     return useQuery({
       queryKey: ["sos"],
       queryFn: async () => {
@@ -42,7 +42,6 @@ export const useLogsQuery = () => {
   };
 
   const useSendSos = () => {
-    const { customKy } = useKy();
     const queryClient = useQueryClient();
 
     return useMutation({
@@ -56,7 +55,6 @@ export const useLogsQuery = () => {
   };
 
   const useEditLog = () => {
-    const { customKy } = useKy();
     const queryClient = useQueryClient();
 
     return useMutation({
