@@ -15,7 +15,7 @@ export const useKy = () => {
       ],
       afterResponse: [
         async (request, _, response) => {
-          if (response.status === 403) {
+          if (response.status === 401) {
             try {
               if (!auth?.username) return;
               const { accessToken, username } = await refreshToken(
@@ -35,7 +35,7 @@ export const useKy = () => {
     retry: {
       methods: ["get", "post"],
       limit: 3,
-      statusCodes: [403],
+      statusCodes: [401],
     },
   });
 
