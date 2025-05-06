@@ -11,6 +11,13 @@ import { GET_SOS, LOGS } from "./ApiVars";
 export const useLogsQuery = () => {
   const { customKy } = useKy();
 
+  const useLogs = () => {
+    return useQuery({
+      queryKey: ["logs"],
+      queryFn: async () => await customKy.get<LogsResponse>(LOGS).json(),
+    });
+  };
+
   const useInfiniteLogs = () => {
     return useInfiniteQuery({
       queryKey: ["infiniteLogs"],
@@ -31,13 +38,7 @@ export const useLogsQuery = () => {
   const useGetSos = () => {
     return useQuery({
       queryKey: ["sos"],
-      queryFn: async () => {
-        try {
-          return await customKy.get<SosResponse>(GET_SOS).json();
-        } catch (error) {
-          console.error("Ошибка при получении данных sos", error);
-        }
-      },
+      queryFn: async () => await customKy.get<SosResponse>(GET_SOS).json(),
     });
   };
 
@@ -90,5 +91,6 @@ export const useLogsQuery = () => {
     useInfiniteLogs,
     useGetSos,
     useSendSos,
+    useLogs,
   };
 };

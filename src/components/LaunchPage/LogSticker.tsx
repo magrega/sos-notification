@@ -2,11 +2,13 @@ import { Box } from "@mui/material";
 import { useLogsQuery } from "hooks/QueryHooks/useLogsQuery";
 
 const LogSticker = () => {
-  const { useInfiniteLogs } = useLogsQuery();
-  const { data: logs } = useInfiniteLogs();
-  const count = logs?.pages[0].count;
+  const { useLogs } = useLogsQuery();
+  const { data: logs } = useLogs();
+  const count = logs?.length;
 
-  return count ? (
+  if (!count || count <= 0) return null;
+
+  return (
     <Box
       sx={{
         position: "absolute",
@@ -22,7 +24,7 @@ const LogSticker = () => {
     >
       {count}
     </Box>
-  ) : null;
+  );
 };
 
 export default LogSticker;
