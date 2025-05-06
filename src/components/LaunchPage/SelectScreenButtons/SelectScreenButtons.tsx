@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { SelectScreenButtonsType } from "types/SosTypes";
 import LogSticker from "../LogSticker";
 
-export interface SelectScreenButtonProps {
+interface SelectScreenButtonProps {
   activeButton: SelectScreenButtonsType;
   setActiveButton: (value: SelectScreenButtonsType) => void;
 }
@@ -25,31 +25,45 @@ const SelectScreenButtons = ({
   return (
     <ButtonGroup
       disableRipple
-      aria-label="sos and logs switch"
       fullWidth
-      sx={{
-        display: { md: "none" },
-        p: 2,
-        mb: 2,
-        bgcolor: "white",
-        borderRadius: 0,
-      }}
+      aria-label="sos and logs switch"
+      sx={buttonGroupStyles}
     >
-      <Button
-        variant={isActiveButton("SOS")}
-        onClick={() => handleTabChange("SOS")}
-      >
-        {t("selectScreenButtons.sos")}
-      </Button>
-      <Button
-        variant={isActiveButton("Logs")}
-        onClick={() => handleTabChange("Logs")}
-      >
-        {t("selectScreenButtons.logs")}
-        <LogSticker />
-      </Button>
+      {buttons.map(({ value, translationKey, hasSticker }) => (
+        <Button
+          key={value}
+          variant={isActiveButton(value)}
+          onClick={() => handleTabChange(value)}
+        >
+          {t(translationKey)}
+          {hasSticker && <LogSticker />}
+        </Button>
+      ))}
     </ButtonGroup>
   );
 };
 
 export default SelectScreenButtons;
+
+interface ButtonConfig {
+  value: SelectScreenButtonsType;
+  translationKey: string;
+  hasSticker?: boolean;
+}
+
+const buttons: ButtonConfig[] = [
+  { value: "SOS", translationKey: "selectScreenButtons.sos" },
+  {
+    value: "Logs",
+    translationKey: "selectScreenButtons.logs",
+    hasSticker: true,
+  },
+];
+
+const buttonGroupStyles = {
+  display: { md: "none" },
+  p: 2,
+  mb: 2,
+  bgcolor: "white",
+  borderRadius: 0,
+};

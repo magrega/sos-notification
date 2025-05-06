@@ -25,6 +25,7 @@ const SosForm = ({ sosFormData, isLoading }: ISosForm) => {
   const { handleSnackbar } = useSnackbar();
   const { seconds, isCountdown, cancelCountdown, startCountdown } =
     useCountdown();
+
   const { useSendSos } = useLogsQuery();
   const { mutateAsync: sendSos, isPending } = useSendSos();
 
