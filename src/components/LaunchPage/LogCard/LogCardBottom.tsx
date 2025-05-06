@@ -14,7 +14,7 @@ const LogCardBottom = ({ log }: LogCardBottomProps) => {
   return (
     <Box sx={cardBottomStyles}>
       <Typography variant="body2">LOG ID: {log.id}</Typography>
-      <LogStatus>{log.status}</LogStatus>
+      <LogStatus status={log.status} />
       <Typography variant="body2">
         {t("logCard.daysPassed", { daysPassed })}
       </Typography>

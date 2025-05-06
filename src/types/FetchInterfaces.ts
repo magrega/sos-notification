@@ -1,10 +1,11 @@
 import { AlertColor, AlertPropsColorOverrides } from "@mui/material";
 import { OverridableStringUnion } from "@mui/types";
+import { LogStatusesType } from "./SosTypes";
 
 export type ILog = {
   plant: string | number | null;
   protocol: string | null;
-  status: string;
+  status: LogStatusesType;
   comment: string | null;
   time_create: string;
   pc_name: string | undefined;

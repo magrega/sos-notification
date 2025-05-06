@@ -1,20 +1,24 @@
 import { Box, Theme, Typography } from "@mui/material";
-import { PropsWithChildren, ReactNode } from "react";
+import { LogStatusesType } from "types/SosTypes";
 
-const calculateColor = (theme: Theme, children: ReactNode) => {
-  if (children === "Решено")
-    return { backgroundColor: theme.palette.success.main };
-  if (children === "Зарегистрировано")
-    return { backgroundColor: theme.palette.primary.main };
-  if (children === "В процессе")
-    return { backgroundColor: theme.palette.warning.main };
-  if (children === "Ошибочно")
-    return { backgroundColor: theme.palette.error.main };
-  if (children === "Ожидание")
-    return { backgroundColor: "lightgrey", color: "black" };
+const calculateColor = (theme: Theme, status: LogStatusesType) => {
+  if (!status) return;
+  const statuses = {
+    Решено: { backgroundColor: theme.palette.success.main },
+    Зарегистрировано: { backgroundColor: theme.palette.primary.main },
+    "В процессе": { backgroundColor: theme.palette.warning.main },
+    Ошибочно: { backgroundColor: theme.palette.error.main },
+    Ожидание: { backgroundColor: "lightgrey", color: "black" },
+  };
+
+  return statuses[status];
 };
 
-const LogStatus = ({ children }: PropsWithChildren) => {
+interface LogStatusProps {
+  status: LogStatusesType;
+}
+
+const LogStatus = ({ status }: LogStatusProps) => {
   return (
     <Box
       sx={(theme) => ({
@@ -22,10 +26,10 @@ const LogStatus = ({ children }: PropsWithChildren) => {
         borderRadius: "4px",
         px: 1,
         py: 0.2,
-        ...calculateColor(theme, children),
+        ...calculateColor(theme, status),
       })}
     >
-      <Typography variant="body2">{children}</Typography>
+      <Typography variant="body2">{status}</Typography>
     </Box>
   );
 };
