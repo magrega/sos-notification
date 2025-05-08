@@ -29,7 +29,8 @@ export const useGetUserQuery = () => {
 };
 
 export const useCheckLoginQuery = () => {
-  const { getUser } = useQueryUtils();
+  const { getUser, t } = useQueryUtils();
+
   return useMutation({
     mutationKey: ["CheckLogin"],
     mutationFn: async (
@@ -37,7 +38,7 @@ export const useCheckLoginQuery = () => {
     ): Promise<CheckLoginResponse | undefined> => {
       const user = await getUser(login);
 
-      if (!user) throw new Error("User not found!");
+      if (!user) throw new Error(t("error.userNotFound"));
       return user;
     },
     gcTime: 0,
@@ -45,16 +46,16 @@ export const useCheckLoginQuery = () => {
 };
 
 export const useLoginByPasswordMutation = () => {
-  const { customKy, getUser } = useQueryUtils();
+  const { customKy, getUser, t } = useQueryUtils();
   return useMutation({
     mutationFn: async (credentials: {
       login: string;
       password: string;
     }): Promise<loginResponse> => {
+      if (!credentials.password) throw new Error(t("error.noPassword"));
       const user = await getUser(credentials.login);
-      console.log(user);
 
-      if (!user) throw new Error("User not found!");
+      if (!user) throw new Error(t("error.userNotFound!"));
 
       return await customKy
         .post(LOGIN, {
@@ -67,7 +68,7 @@ export const useLoginByPasswordMutation = () => {
 };
 
 export const useLoginByCodeMutation = () => {
-  const { customKy, getUser } = useQueryUtils();
+  const { customKy, getUser, t } = useQueryUtils();
   return useMutation({
     mutationFn: async (credentials: { login: string; code: string }) => {
       const user = await getUser(credentials.login);
@@ -80,7 +81,7 @@ export const useLoginByCodeMutation = () => {
           .json();
         return userData;
       } else {
-        throw new Error("wrong code");
+        throw new Error(t("error.noPassword"));
       }
     },
     gcTime: 0,

@@ -1,12 +1,14 @@
 import useAuth from "hooks/useAuth";
 import { useKy } from "hooks/useKy";
 import { useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { user } from "types/FetchInterfaces";
 import { USERS } from "./ApiVars";
 
 export const useQueryUtils = () => {
   const { auth } = useAuth();
   const { customKy } = useKy();
+  const { t } = useTranslation();
 
   const getUser = useCallback(
     async (login: string) => {
@@ -17,5 +19,5 @@ export const useQueryUtils = () => {
     [customKy]
   );
 
-  return { auth, customKy, getUser };
+  return { auth, customKy, getUser, t };
 };

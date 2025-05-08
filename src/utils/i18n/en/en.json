@@ -45,7 +45,9 @@
   "error": {
     "error404": "Oops! There's no such page!",
     "loadingData": "There was an error loading the data.",
-    "wrongCode": "Wrong code"
+    "wrongCode": "Wrong code",
+    "userNotFound": "User not found",
+    "noPassword": "Incorrect credentials"
   },
   "LogCards": {
     "noCards": "No cards were fetched try again or come later",
