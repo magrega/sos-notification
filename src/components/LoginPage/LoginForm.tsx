@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import { useCheckLoginQuery } from "hooks/QueryHooks/useAuthQuery";
 import useAuth from "hooks/useAuth";
-import { useVisualError } from "hooks/useError";
+import { useVisualError } from "hooks/useVisualError";
 import { ChangeEvent, KeyboardEvent, RefObject, useState } from "react";
 import { useTranslation } from "react-i18next";
 import ByPassword from "./ByPassword";

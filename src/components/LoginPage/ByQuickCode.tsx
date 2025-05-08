@@ -4,7 +4,7 @@ import useAuth from "hooks/useAuth";
 import { RefObject, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
-import { useVisualError } from "../../hooks/useError";
+import { useVisualError } from "../../hooks/useVisualError";
 import QuickCodeCountdown from "./QuickCodeCountdown";
 import QuickCodeInput from "./QuickCodeInput";
 import LoginButton from "./UI/LoginButton";

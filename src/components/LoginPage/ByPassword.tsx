@@ -1,6 +1,6 @@
 import { useLoginByPasswordMutation } from "hooks/QueryHooks/useAuthQuery";
 import useAuth from "hooks/useAuth";
-import { useVisualError } from "hooks/useError";
+import { useVisualError } from "hooks/useVisualError";
 import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router";
 import PasswordInput from "./PasswordInput";
