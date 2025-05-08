@@ -1,4 +1,4 @@
-import { Button, ButtonProps, Tooltip } from '@mui/material';
+import { Button, ButtonProps, Tooltip } from "@mui/material";
 
 interface CardButtonProps extends ButtonProps {
   tooltipText?: string;
@@ -7,10 +7,14 @@ interface CardButtonProps extends ButtonProps {
 const CardButtonWithTooltip = ({
   children,
   color,
-  tooltipText = '',
+  tooltipText = "",
   ...props
 }: CardButtonProps) => (
-  <Tooltip title={tooltipText} slotProps={{ popper: { disablePortal: true } }} placement="top">
+  <Tooltip
+    title={tooltipText}
+    slotProps={{ popper: { disablePortal: true } }}
+    placement="top"
+  >
     <Button variant="contained" color={color} fullWidth {...props}>
       {children}
     </Button>

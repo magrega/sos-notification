@@ -1,4 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
+import { useLoginByCodeMutation } from "hooks/QueryHooks/useAuthQuery";
 import useAuth from "hooks/useAuth";
 import { RefObject, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -8,7 +9,6 @@ import QuickCodeCountdown from "./QuickCodeCountdown";
 import QuickCodeInput from "./QuickCodeInput";
 import LoginButton from "./UI/LoginButton";
 import "./VerificationInput.css";
-import { useLoginByCodeMutation } from "hooks/QueryHooks/useAuthQuery";
 
 interface ByQuickCodeProps {
   setPasswordLogin: () => void;

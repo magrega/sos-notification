@@ -1,8 +1,8 @@
 import { Paper, Typography } from "@mui/material";
 import Loader from "components/shared/Loader/Loader";
+import { useGetSosQuery } from "hooks/QueryHooks/useLogsQuery";
 import { useTranslation } from "react-i18next";
 import SosForm from "./SosForm";
-import { useGetSosQuery } from "hooks/QueryHooks/useLogsQuery";
 
 const SosFormWrapper = () => {
   const { data: sosFormData, isLoading } = useGetSosQuery();

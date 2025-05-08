@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Typography } from "@mui/material";
 
 interface LogoProps {
   logo: string;
@@ -13,7 +13,7 @@ const Logo = ({ logo, mobileHide = false }: LogoProps) => {
       component="a"
       sx={{
         mr: 2,
-        display: { xs: mobileHide ? 'none' : 'flex', md: 'flex' },
+        display: { xs: mobileHide ? "none" : "flex", md: "flex" },
         flexGrow: { xs: 1, md: 0 },
         order: { xs: 0, md: -1 },
       }}

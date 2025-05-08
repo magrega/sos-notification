@@ -1,4 +1,5 @@
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
+import { useRequestCodeMutation } from "hooks/QueryHooks/useAuthQuery";
 import useAuth from "hooks/useAuth";
 import useSnackbar from "hooks/useSnackbar";
 import { MouseEvent, RefObject, useState } from "react";
@@ -6,7 +7,6 @@ import { useTranslation } from "react-i18next";
 import { CodeType } from "types/SosTypes";
 import ExpandableWrapper from "./UI/ExpandableWrapper";
 import LoginButton from "./UI/LoginButton";
-import { useRequestCodeMutation } from "hooks/QueryHooks/useAuthQuery";
 
 interface CodeTypeButtonsProps {
   login: string;

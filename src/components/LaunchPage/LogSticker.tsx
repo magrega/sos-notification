@@ -2,8 +2,7 @@ import { Box } from "@mui/material";
 import { useLogsQuery } from "hooks/QueryHooks/useLogsQuery";
 
 const LogSticker = () => {
-  const { useLogs } = useLogsQuery();
-  const { data: logs } = useLogs();
+  const { data: logs } = useLogsQuery();
   const count = logs?.length;
 
   if (!count || count <= 0) return null;

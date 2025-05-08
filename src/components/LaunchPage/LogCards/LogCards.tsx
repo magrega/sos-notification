@@ -1,11 +1,11 @@
 import { Box, LinearProgress, useMediaQuery } from "@mui/material";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import LinearLoader from "components/shared/Loader/LinearLoader";
+import { useInfiniteLogsQuery } from "hooks/QueryHooks/useLogsQuery";
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import LogCard from "../LogCard/LogCard";
 import NoCards from "./NoCards";
-import { useInfiniteLogsQuery } from "hooks/QueryHooks/useLogsQuery";
 
 const LogCards = () => {
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down("md"));

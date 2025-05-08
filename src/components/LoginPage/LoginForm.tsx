@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import { useCheckLoginQuery } from "hooks/QueryHooks/useAuthQuery";
 import useAuth from "hooks/useAuth";
 import { useVisualError } from "hooks/useError";
 import { ChangeEvent, KeyboardEvent, RefObject, useState } from "react";
@@ -7,7 +8,6 @@ import ByPassword from "./ByPassword";
 import CheckLoginButton from "./CheckLoginButton";
 import CodeTypeButtons from "./CodeTypeButtons";
 import LoginPageInput from "./UI/LoginPageInput";
-import { useCheckLoginQuery } from "hooks/QueryHooks/useAuthQuery";
 
 interface LoginFormProps {
   setCodeLogin: () => void;

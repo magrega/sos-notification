@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import NavLinkStyled from "components/shared/NavLinkStyled";
-import { LinkPagesType } from "./pages.type";
 import { useTranslation } from "react-i18next";
+import { LinkPagesType } from "./pages.type";
 
 interface NavLinksProps {
   pages: LinkPagesType[];
