@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { useLegalQuery } from "hooks/QueryHooks/useLegalQuery";
+import { useGetLegalQuery } from "hooks/QueryHooks/useLegalQuery";
 import parse from "html-react-parser";
 import { useTranslation } from "react-i18next";
 import { OssResponse, TermsAndPrivacy } from "types/FetchInterfaces";
@@ -11,8 +11,7 @@ interface LegalPageContentProps {
 }
 const LegalPageContent = ({ page = "terms" }: LegalPageContentProps) => {
   const { t } = useTranslation();
-  const { useGetLegal } = useLegalQuery();
-  const { data, isFetching, isError } = useGetLegal(page);
+  const { data, isFetching, isError } = useGetLegalQuery(page);
 
   if (isFetching) return t("loading");
   if (isError) return t("error.loadingData");

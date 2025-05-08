@@ -1,5 +1,4 @@
 import { Box, Button, Typography } from "@mui/material";
-import { useAuthQuery } from "hooks/QueryHooks/useAuthQuery";
 import useAuth from "hooks/useAuth";
 import { RefObject, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -9,6 +8,7 @@ import QuickCodeCountdown from "./QuickCodeCountdown";
 import QuickCodeInput from "./QuickCodeInput";
 import LoginButton from "./UI/LoginButton";
 import "./VerificationInput.css";
+import { useLoginByCodeMutation } from "hooks/QueryHooks/useAuthQuery";
 
 interface ByQuickCodeProps {
   setPasswordLogin: () => void;
@@ -24,8 +24,8 @@ const ByQuickCode = ({
   const { auth, setSpreadAuth } = useAuth();
   const login = auth?.username;
 
-  const { LoginByCode } = useAuthQuery();
-  const { mutateAsync: CodeLoginMutation, isPending } = LoginByCode();
+  const { mutateAsync: CodeLoginMutation, isPending } =
+    useLoginByCodeMutation();
 
   const { isErrorVisual, handleError } = useVisualError();
   const [code, setCode] = useState("");

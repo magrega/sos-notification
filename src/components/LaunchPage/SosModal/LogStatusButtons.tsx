@@ -5,10 +5,14 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { MouseEvent } from "react";
+import { LogStatusesType } from "types/SosTypes";
 
 interface LogStatusButtonsProps {
   logStatus: string;
-  handleChange: (_: MouseEvent<HTMLElement>, newStatus: string) => void;
+  handleChange: (
+    _: MouseEvent<HTMLElement>,
+    newStatus: LogStatusesType
+  ) => void;
 }
 
 const LogStatusButtons = ({

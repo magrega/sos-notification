@@ -1,12 +1,12 @@
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
-import { useAuthQuery } from "hooks/QueryHooks/useAuthQuery";
 import useAuth from "hooks/useAuth";
 import useSnackbar from "hooks/useSnackbar";
 import { MouseEvent, RefObject, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { CodeType } from "types/SosTypes";
 import ExpandableWrapper from "./UI/ExpandableWrapper";
 import LoginButton from "./UI/LoginButton";
-import { CodeType } from "types/SosTypes";
+import { useRequestCodeMutation } from "hooks/QueryHooks/useAuthQuery";
 
 interface CodeTypeButtonsProps {
   login: string;
@@ -21,12 +21,11 @@ const CodeTypeButtons = ({
 }: CodeTypeButtonsProps) => {
   const { t } = useTranslation();
   const { setSpreadAuth } = useAuth();
-  const { RequestCode } = useAuthQuery();
 
   const { handleSnackbar } = useSnackbar();
 
   const { mutateAsync: sendCodeData, isPending: isRequestCodePending } =
-    RequestCode();
+    useRequestCodeMutation();
 
   const [codeType, setCodeType] = useState<CodeType>("email");
 

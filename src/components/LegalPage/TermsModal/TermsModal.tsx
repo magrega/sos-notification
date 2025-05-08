@@ -1,11 +1,10 @@
 import { Box, Modal } from "@mui/material";
-import { useAuthQuery } from "hooks/QueryHooks/useAuthQuery";
 import { PropsWithChildren, useEffect, useState } from "react";
 import TermsTabs from "./TermsTabs";
+import { useGetUserQuery } from "hooks/QueryHooks/useAuthQuery";
 
 const TermsModal = ({ children }: PropsWithChildren) => {
-  const { useGetUser } = useAuthQuery();
-  const { data: userData } = useGetUser();
+  const { data: userData } = useGetUserQuery();
 
   const [open, setOpen] = useState(false);
   const handleClose = (

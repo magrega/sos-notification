@@ -1,5 +1,4 @@
 import { Typography } from "@mui/material";
-import { useAuthQuery } from "hooks/QueryHooks/useAuthQuery";
 import useAuth from "hooks/useAuth";
 import { useVisualError } from "hooks/useError";
 import { ChangeEvent, KeyboardEvent, RefObject, useState } from "react";
@@ -8,6 +7,7 @@ import ByPassword from "./ByPassword";
 import CheckLoginButton from "./CheckLoginButton";
 import CodeTypeButtons from "./CodeTypeButtons";
 import LoginPageInput from "./UI/LoginPageInput";
+import { useCheckLoginQuery } from "hooks/QueryHooks/useAuthQuery";
 
 interface LoginFormProps {
   setCodeLogin: () => void;
@@ -17,13 +17,12 @@ interface LoginFormProps {
 const LoginForm = ({ setCodeLogin, countdownStateRef }: LoginFormProps) => {
   const { t } = useTranslation();
   const { setSpreadAuth } = useAuth();
-  const { CheckLogin } = useAuthQuery();
   const {
     data: CheckLoginData,
     mutateAsync: CheckLoginMutation,
     isPending: isCheckLoginPending,
     reset,
-  } = CheckLogin();
+  } = useCheckLoginQuery();
   const authType = CheckLoginData?.auth_type;
   const { isErrorVisual, handleError } = useVisualError();
 

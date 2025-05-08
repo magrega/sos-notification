@@ -1,9 +1,10 @@
 import { Box, Modal, Typography } from "@mui/material";
-import { useLogsQuery } from "hooks/QueryHooks/useLogsQuery";
+import { useEditLogMutation } from "hooks/QueryHooks/useLogsQuery";
 import useSnackbar from "hooks/useSnackbar";
 import { MouseEvent, MouseEventHandler, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ILog } from "types/FetchInterfaces";
+import { LogStatusesType } from "types/SosTypes";
 import CommentArea from "../CommentArea";
 import CardButtonWithTooltip from "../UI/CardButtonWithTooltip";
 import Label from "../UI/Label";
@@ -25,8 +26,7 @@ const SosModal = ({
   closeMenu,
 }: SosModalProps) => {
   const { t } = useTranslation();
-  const { useEditLog } = useLogsQuery();
-  const { mutateAsync: editLog, isPending } = useEditLog();
+  const { mutateAsync: editLog, isPending } = useEditLogMutation();
   const { handleSnackbar } = useSnackbar();
 
   const [comment, setComment] = useState("");
@@ -35,8 +35,10 @@ const SosModal = ({
   if (!open && comment !== "") setComment("");
   if (!open && logStatus !== log.status) setLogStatus(log.status);
 
-  const handleChange = (_: MouseEvent<HTMLElement>, newStatus: string) =>
-    setLogStatus(newStatus);
+  const handleChange = (
+    _: MouseEvent<HTMLElement>,
+    newStatus: LogStatusesType
+  ) => setLogStatus(newStatus);
 
   const sendEditLog = async (payload: {
     comment?: string;
@@ -45,7 +47,7 @@ const SosModal = ({
     try {
       await editLog({ logId: log.id, ...payload });
       onClose();
-      handleSnackbar(t("log.updateSuccess"));
+      handleSnackbar(t("sosForm.updateSuccess"));
       if (closeMenu) closeMenu();
     } catch (error) {
       onClose();

@@ -1,5 +1,5 @@
 import { Box, Paper } from "@mui/material";
-import { useLogsQuery } from "hooks/QueryHooks/useLogsQuery";
+import { useSendSosMutation } from "hooks/QueryHooks/useLogsQuery";
 import useAuth from "hooks/useAuth";
 import { useCountdown } from "hooks/useCountdown";
 import useSnackbar from "hooks/useSnackbar";
@@ -26,8 +26,7 @@ const SosForm = ({ sosFormData, isLoading }: ISosForm) => {
   const { seconds, isCountdown, cancelCountdown, startCountdown } =
     useCountdown();
 
-  const { useSendSos } = useLogsQuery();
-  const { mutateAsync: sendSos, isPending } = useSendSos();
+  const { mutateAsync: sendSos, isPending } = useSendSosMutation();
 
   const onSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -52,7 +51,7 @@ const SosForm = ({ sosFormData, isLoading }: ISosForm) => {
             comment: "",
           }));
           formRef.current?.reset();
-          handleSnackbar(t("log.updateSuccess"));
+          handleSnackbar(t("sosForm.updateSuccess"));
         })
         .catch((err) => handleSnackbar("Error: " + err, true));
 

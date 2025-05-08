@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { useKy } from "hooks/useKy";
 import { Announcement } from "types/FetchInterfaces";
 import { ANNOUNCEMENT } from "./ApiVars";
+import { useQueryUtils } from "./useQueryUtils";
 
 export const useAnnouncementsQuery = () => {
-  const { customKy } = useKy();
+  const { customKy } = useQueryUtils();
 
   return useQuery({
     queryKey: ["announcements"],

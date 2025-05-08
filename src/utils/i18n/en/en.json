@@ -39,7 +39,8 @@
     "isSending": "Sending",
     "comment": "Enter a comment (recommended)",
     "commentRequired": "Enter a comment",
-    "noNotifications": "You are logged in but the administrator has turned off all notifications. Once they are turned on they will appear on this screen."
+    "noNotifications": "You are logged in but the administrator has turned off all notifications. Once they are turned on they will appear on this screen.",
+    "updateSuccess": "Update succesful!"
   },
   "error": {
     "error404": "Oops! There's no such page!",

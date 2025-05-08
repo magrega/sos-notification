@@ -1,5 +1,5 @@
 import { Button, Typography } from "@mui/material";
-import { useAuthQuery } from "hooks/QueryHooks/useAuthQuery";
+import { useRequestCodeMutation } from "hooks/QueryHooks/useAuthQuery";
 import useAuth from "hooks/useAuth";
 import useSnackbar from "hooks/useSnackbar";
 import { RefObject, useState } from "react";
@@ -17,8 +17,7 @@ interface QuickCodeCountdownProps {
 
 const QuickCodeCountdown = ({ countdownStateRef }: QuickCodeCountdownProps) => {
   const { t } = useTranslation();
-  const { RequestCode } = useAuthQuery();
-  const { mutateAsync: sendCodeData, isPending } = RequestCode();
+  const { mutateAsync: sendCodeData, isPending } = useRequestCodeMutation();
   const { handleSnackbar } = useSnackbar();
   const { auth } = useAuth();
   const login = auth?.username;
