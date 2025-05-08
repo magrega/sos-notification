@@ -6,6 +6,8 @@ All of the accidents are stored and have statuses as well as comments that can b
 
 also I have this app self-hosted with Nginx Proxy Manager and Portainer https://sos.metabroadcast.ru
 
+**use ```codeuser``` login to try out the app**
+
 Key features:
 - Adaptive for mobile
 - Uses MUI library

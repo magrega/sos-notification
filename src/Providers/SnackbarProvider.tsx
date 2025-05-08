@@ -27,6 +27,7 @@ export const SnackbarProvider = ({ children }: PropsWithChildren) => {
     setSnackbarOpen(true);
     setMessage(msg);
     setError(isError);
+    console.log(msg);
   };
 
   return (
