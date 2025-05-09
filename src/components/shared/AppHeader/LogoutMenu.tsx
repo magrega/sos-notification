@@ -1,6 +1,6 @@
-import LogoutIcon from '@mui/icons-material/Logout';
-import { ListItemIcon, MenuItem, Typography } from '@mui/material';
-import { useTranslation } from 'react-i18next';
+import LogoutIcon from "@mui/icons-material/Logout";
+import { ListItemIcon, MenuItem, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 interface LogoutMenuProps {
   handleLogOut: () => void;
@@ -14,7 +14,7 @@ const LogoutMenu = ({ handleLogOut }: LogoutMenuProps) => {
       <ListItemIcon>
         <LogoutIcon fontSize="small" />
       </ListItemIcon>
-      <Typography textAlign="center">{t('header.logOut')}</Typography>
+      <Typography textAlign="center">{t("header.logOut")}</Typography>
     </MenuItem>
   );
 };

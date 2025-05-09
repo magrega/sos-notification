@@ -62,7 +62,7 @@ const CodeTypeButtons = ({
             },
           }}
         >
-          <ToggleButton tabIndex={2} value={"mobile"} sx={{}}>
+          <ToggleButton tabIndex={2} value={"mobile"}>
             {t("loginPage.smsCode")}
           </ToggleButton>
           <ToggleButton tabIndex={3} value={"email"}>
