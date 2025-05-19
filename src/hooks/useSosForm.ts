@@ -25,13 +25,10 @@ export const useSosForm = (sosFormData: SosResponse) => {
   });
 
   const setters = { setOptions, setFormState };
-  const setComment = (comment: string) =>
-    setFormState((prev) => ({ ...prev, comment }));
 
   return {
     formState,
     setters,
     options,
-    setComment,
   };
 };

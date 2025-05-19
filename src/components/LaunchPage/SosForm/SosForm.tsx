@@ -18,7 +18,7 @@ const SosForm = ({ sosFormData, isLoading }: ISosForm) => {
   const { t } = useTranslation();
 
   const formRef = useRef<HTMLFormElement>(null);
-  const { formState, setters, options, setComment } = useSosForm(sosFormData);
+  const { formState, setters, options } = useSosForm(sosFormData);
   const { plant, protocol, comment, attachments } = formState;
   const { auth } = useAuth();
 
@@ -69,7 +69,7 @@ const SosForm = ({ sosFormData, isLoading }: ISosForm) => {
             setters={setters}
           />
           <Label label={t("sosForm.comment")} />
-          <CommentArea comment={comment} setComment={setComment} />
+          <CommentArea comment={comment} setFormState={setters.setFormState} />
           <Box sx={{ display: "flex", flexDirection: "column", rowGap: 2 }}>
             <FileUpload
               attachments={attachments}
