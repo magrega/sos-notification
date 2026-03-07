@@ -37,7 +37,7 @@ const SosModal = ({
 
   const handleChange = (
     _: MouseEvent<HTMLElement>,
-    newStatus: LogStatusesType
+    newStatus: LogStatusesType,
   ) => setLogStatus(newStatus);
 
   const sendEditLog = async (payload: {
@@ -81,7 +81,7 @@ const SosModal = ({
             />
           )}
           <Label label={t("sosForm.commentRequired")} />
-          <CommentArea comment={comment} setComment={setComment} />
+          <CommentArea comment={comment} onCommentChange={setComment} />
           <Box sx={{ display: "flex", gap: 1 }}>
             <CardButtonWithTooltip
               disabled={checkSubmitDisabled()}

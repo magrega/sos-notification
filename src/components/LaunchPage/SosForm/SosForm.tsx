@@ -69,7 +69,12 @@ const SosForm = ({ sosFormData, isLoading }: ISosForm) => {
             setters={setters}
           />
           <Label label={t("sosForm.comment")} />
-          <CommentArea comment={comment} setFormState={setters.setFormState} />
+          <CommentArea
+            comment={comment}
+            onCommentChange={(value) =>
+              setters.setFormState((prev) => ({ ...prev, comment: value }))
+            }
+          />
           <Box sx={{ display: "flex", flexDirection: "column", rowGap: 2 }}>
             <FileUpload
               attachments={attachments}

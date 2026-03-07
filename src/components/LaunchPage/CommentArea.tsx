@@ -1,13 +1,12 @@
 import { TextField } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
-import { SettersType } from "types/SosTypes";
 
 interface CommentAreaProps {
   comment: string;
-  setFormState: SettersType["setFormState"];
+  onCommentChange: (value: string) => void;
 }
 
-const CommentArea = ({ comment, setFormState }: CommentAreaProps) => (
+const CommentArea = ({ comment, onCommentChange }: CommentAreaProps) => (
   <FormControl fullWidth sx={{ mb: 2 }}>
     <TextField
       multiline
@@ -15,9 +14,7 @@ const CommentArea = ({ comment, setFormState }: CommentAreaProps) => (
       maxRows={5}
       name="comment"
       value={comment}
-      onChange={(e) =>
-        setFormState((prev) => ({ ...prev, comment: e.target.value }))
-      }
+      onChange={(e) => onCommentChange(e.target.value)}
     />
   </FormControl>
 );
