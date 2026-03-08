@@ -35,8 +35,11 @@ const LanguageMenu = ({ closeMenu }: LanguageMenuProps) => {
   const handleLanguage = (e: MouseEvent<HTMLElement>) => {
     const text = e.currentTarget.innerText;
     if (!text) return;
+    console.log(text);
+
     if (text === t("language.en")) i18n.changeLanguage("en");
-    if (text === t("language.ru")) i18n.changeLanguage("ru");
+    if (text === t("language.ru") || text === "ru-RU")
+      i18n.changeLanguage("ru");
     handleClose();
   };
 
@@ -47,7 +50,7 @@ const LanguageMenu = ({ closeMenu }: LanguageMenuProps) => {
           <TranslateIcon fontSize="small" />
         </ListItemIcon>
         <Typography textAlign="center">
-          {t(`language.${i18n.language}`)}
+          {t(`language.${i18n.language.split("-")[0]}`)}
         </Typography>
         <NavigateNextIcon fontSize="small" sx={{ marginLeft: "auto" }} />
       </MenuItem>

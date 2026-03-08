@@ -36,13 +36,12 @@ const UserMenu = () => {
     <Box sx={{ flexGrow: 0, paddingRight: { xs: 0, lg: "10px" } }}>
       <Box sx={{ display: "flex", alignItems: "center" }}>
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar alt={data?.username} src="/static/images/avatar/2.jpg" />
+          <Avatar alt={data?.username} />
         </IconButton>
       </Box>
       <Menu
         id="appbar-usermenu"
         disableScrollLock
-        disablePortal
         anchorEl={anchorElUser}
         open={Boolean(anchorElUser)}
         onClose={handleCloseUserMenu}
@@ -63,7 +62,7 @@ const UserMenu = () => {
             flexDirection: "column",
           }}
         >
-          <Avatar alt={data?.username} src="/static/images/avatar/2.jpg" />
+          <Avatar alt={data?.username} />
           <Typography sx={{ mt: 1 }}>{data?.username}</Typography>
         </MenuItem>
         <Divider />
